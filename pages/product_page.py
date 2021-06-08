@@ -6,6 +6,9 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
+    def __init__(self, *args, **kwargs):
+        super(ProductPage, self).__init__(*args, **kwargs)
+
     def add_to_basket(self):
         product_name = self.get_product_name()
         product_price = self.get_product_price()
@@ -54,3 +57,9 @@ class ProductPage(BasePage):
             return False
 
         return True
+
+    def not_success_message_present_test(self):
+        assert self.is_not_element_present(*ProductPageLocators.MSG_PRODUCT),  "Success message seen"
+
+    def success_message_disappeared_test(self):
+        assert self.is_disappeared(*ProductPageLocators.MSG_PRODUCT), "Success message is not disappeared"

@@ -10,6 +10,10 @@ class BasketPage(BasePage):
     def __init__(self, *args, **kwargs):
         super(BasketPage, self).__init__(*args, **kwargs)
 
+    def basked_empty_test(self):
+        assert self.is_basket_empty(), "Basket does not empty"
+        assert self.is_emptymsg_present(), "No empty basket message"
+
     def is_basket_empty(self):
         try :
             WebDriverWait(self.browser, 4).until_not(EC.presence_of_all_elements_located(BasketPageLocators.BASKET_ITEMS))
