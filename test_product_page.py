@@ -86,7 +86,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page.not_success_message_present_test()
 
 
-# @pytest.mark.need_review
+@pytest.mark.need_review
 @pytest.mark.parametrize('link',
                          ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                           "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
